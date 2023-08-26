@@ -17,4 +17,9 @@ public class AnagramTest {
         Assertions.assertFalse(Anagram.isAnagram("car",null));
 
     }
+    @Test
+    public void emptyString(){
+        Assertions.assertFalse(Anagram.isAnagram("car",""));
+
+    }
 }
