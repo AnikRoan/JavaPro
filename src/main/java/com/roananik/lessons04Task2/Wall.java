@@ -1,74 +1,70 @@
 package com.roananik.lessons04Task2;
 
 public class Wall implements Obstacle {
+    private final String winInfo = "named member %s overcame the obstacle %s high: %d\n";
+    private final String lossInfo = "named member %s could not overcome " +
+            "the obstacle %s high: %d His jump amounted to: %d\n";
+
 
     private final int height;
 
-    private final String wallName = " OBSTACLE Wall";
 
-    public String getWallName() {
-        return wallName;
-    }
+    private final String wallName = "WALL";
 
-//    public int getHeight() {
-//        return height;
-//    }
 
-    private void humanOvercome(Human human) {
+    private void humanOvercomes(Human human) {
         if (height <= human.getJumpHeight()) {
+
             human.jump();
             human.setDisqualify(true);
-            System.out.println(human.getHumanName() + " Jumped over an obstacle");
+            System.out.printf(winInfo, human.getHumanName(), wallName, height);
         } else {
             human.jump();
             human.setDisqualify(false);
-            System.out.println(human.getHumanName() + " dropped out. Filed to overcome the obstacle. JUMP HEIGHT: "
-                    + (height - human.getJumpHeight()));
+            System.out.printf(lossInfo, human.getHumanName(), wallName, height, human.getJumpHeight());
         }
     }
-    private void catOvercome(Cat cat) {
+
+    private void catOvercomes(Cat cat) {
         if (height <= cat.getJumpHeight()) {
             cat.jump();
             cat.setDisqualify(true);
-            System.out.println(cat.getCatName() + " Jumped over an obstacle");
+            System.out.printf(winInfo, cat.getCatName(), wallName, height);
         } else {
             cat.jump();
             cat.setDisqualify(false);
-            System.out.println(cat.getCatName() + " dropped out. Filed to overcome the obstacle. JUMP HEIGHT: "
-                    + (height - cat.getJumpHeight()));
+            System.out.printf(lossInfo, cat.getCatName(), wallName, height, cat.getJumpHeight());
         }
     }
-    private void robotOvercome(Robot robot) {
+
+    private void robotOvercomes(Robot robot) {
+        //лучше использовать sting Format
+        //исправить
         if (height <= robot.getJumpHeight()) {
             robot.jump();
             robot.setDisqualify(true);
-            System.out.println(robot.getRobotName() + " Jumped over an obstacle");
+            System.out.printf(winInfo, robot.getRobotName(), wallName, height);
         } else {
             robot.jump();
             robot.setDisqualify(false);
-            System.out.println(robot.getRobotName() + " dropped out. Filed to overcome the obstacle. JUMP HEIGHT: "
-                    + (height - robot.getJumpHeight()));
+            System.out.printf(lossInfo, robot.getRobotName(), wallName, height, robot.getJumpHeight());
         }
     }
-
-
-
-
 
 
     @Override
     public boolean overcome(Participant participant) {
-        //переписать метод разбить его на мелкие методы для кажджого участника
-        if(participant.isDisqualification()){
-            if(participant instanceof Human){
-                humanOvercome((Human) participant);
+
+        if (participant.isDisqualification()) {
+            if (participant instanceof Human) {
+                humanOvercomes((Human) participant);
                 return true;
-            }else if(participant instanceof Cat){
-                catOvercome((Cat) participant);
+            } else if (participant instanceof Cat) {
+                catOvercomes((Cat) participant);
                 return true;
 
-            }else if(participant instanceof  Robot){
-                robotOvercome((Robot) participant);
+            } else if (participant instanceof Robot) {
+                robotOvercomes((Robot) participant);
                 return true;
 
             }

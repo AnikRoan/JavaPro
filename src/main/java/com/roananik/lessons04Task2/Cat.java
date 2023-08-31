@@ -1,15 +1,15 @@
 package com.roananik.lessons04Task2;
 
 public class Cat implements Participant {
-    private int jumpHeight;
-    private int distanceLimit;
-    private String catName;
+    private final int jumpHeight;
+    private final int distanceLimit;
+    private final String catName;
 
     private boolean disqualify = true;
 
-    public boolean isDisqualify() {
-        return disqualify;
-    }
+//    public boolean isDisqualify() {
+//        return disqualify;
+//    }
 
     public void setDisqualify(boolean disqualify) {
         this.disqualify = disqualify;
@@ -30,14 +30,14 @@ public class Cat implements Participant {
 
     @Override
     public void run() {
-        System.out.println("Cat RUN...");
+        System.out.println("Cat starts to RUN...\uD83D\uDC31");
 
     }
 
 
     @Override
     public void jump() {
-        System.out.println("Cat JUMP^^^");
+        System.out.println("Cat starts to JUMP^^^\uD83D\uDE3B");
 
     }
 

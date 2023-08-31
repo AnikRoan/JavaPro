@@ -7,9 +7,11 @@ public class Main {
                 , new Robot(50, 10, "Robi")};
 
         Obstacle[] obstacles = {new Wall(2)
-                , new Treadmill(20)
+                , new TreadMill(20)
                 , new Wall(8)
-                , new Treadmill(80)};
+                , new TreadMill(80)};
+
+
         for (Obstacle obstacle : obstacles) {
             for (Participant participant : participants) {
                 if (!obstacle.overcome(participant)) {
