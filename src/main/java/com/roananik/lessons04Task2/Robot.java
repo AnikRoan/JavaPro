@@ -7,9 +7,6 @@ public class Robot implements Participant {
 
     private boolean disqualify = true;
 
-//    public boolean isDisqualify() {
-//        return disqualify;
-//    }
 
     public void setDisqualify(boolean disqualify) {
         this.disqualify = disqualify;
@@ -30,12 +27,12 @@ public class Robot implements Participant {
 
     @Override
     public void run() {
-        System.out.println("Robot starts to RUN...\uD83E\uDD16");
+        System.out.println(robotName + " Robot starts to RUN...\uD83E\uDD16");
     }
 
     @Override
     public void jump() {
-        System.out.println("Robot starts to JUMP^^^\uD83E\uDD16\u26A1");
+        System.out.println(robotName + " Robot starts to JUMP^^^\uD83E\uDD16⚡");
 
     }
 

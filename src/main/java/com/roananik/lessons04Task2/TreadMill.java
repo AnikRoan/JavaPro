@@ -2,7 +2,7 @@ package com.roananik.lessons04Task2;
 
 public class TreadMill implements Obstacle {
     private final String winInfo = "named member %s overcame the obstacle %s length: %d\n";
-    private final String lossInfo ="named member %s could not overcome " +
+    private final String lossInfo = "named member %s could not overcome " +
             "the obstacle %s length: %d He ran: %d\n";
     private final int length;
     private final String treadmillName = "TREAD MILL";
@@ -24,10 +24,10 @@ public class TreadMill implements Obstacle {
         if (length <= cat.getDistanceLimit()) {
             cat.run();
             cat.setDisqualify(true);
-            System.out.printf(winInfo,cat.getCatName(),treadmillName,length);
+            System.out.printf(winInfo, cat.getCatName(), treadmillName, length);
         } else {
             cat.run();
-            System.out.printf(lossInfo,cat.getCatName(),treadmillName,length,cat.getDistanceLimit());
+            System.out.printf(lossInfo, cat.getCatName(), treadmillName, length, cat.getDistanceLimit());
             cat.setDisqualify(false);
         }
     }
@@ -36,11 +36,11 @@ public class TreadMill implements Obstacle {
         if (length <= robot.getDistanceLimit()) {
             robot.run();
             robot.setDisqualify(true);
-            System.out.printf(winInfo,robot.getRobotName(),treadmillName,length);
+            System.out.printf(winInfo, robot.getRobotName(), treadmillName, length);
         } else {
             robot.run();
             robot.setDisqualify(false);
-            System.out.printf(lossInfo,robot.getRobotName(),treadmillName,length,robot.getDistanceLimit());
+            System.out.printf(lossInfo, robot.getRobotName(), treadmillName, length, robot.getDistanceLimit());
         }
     }
 

@@ -7,9 +7,6 @@ public class Cat implements Participant {
 
     private boolean disqualify = true;
 
-//    public boolean isDisqualify() {
-//        return disqualify;
-//    }
 
     public void setDisqualify(boolean disqualify) {
         this.disqualify = disqualify;
@@ -30,14 +27,14 @@ public class Cat implements Participant {
 
     @Override
     public void run() {
-        System.out.println("Cat starts to RUN...\uD83D\uDC31");
+        System.out.println(catName + " Cat starts to RUN...\uD83D\uDC31");
 
     }
 
 
     @Override
     public void jump() {
-        System.out.println("Cat starts to JUMP^^^\uD83D\uDE3B");
+        System.out.println(catName + " Cat starts to JUMP^^^\uD83D\uDE3B");
 
     }
 

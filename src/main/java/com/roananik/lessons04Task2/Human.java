@@ -7,9 +7,6 @@ public class Human implements Participant {
 
     private boolean disqualify = true;
 
-//    public boolean isDisqualify() {
-//        return disqualify;
-//    }
 
     public void setDisqualify(boolean disqualify) {
         this.disqualify = disqualify;
@@ -30,12 +27,12 @@ public class Human implements Participant {
 
     @Override
     public void run() {
-        System.out.println("Human starts to RUN...\uD83C\uDFC3");
+        System.out.println(humanName + " Human starts to RUN...\uD83C\uDFC3");
     }
 
     @Override
     public void jump() {
-        System.out.println("Human starts to JUMP^^^\uD83E\uDD38");
+        System.out.println(humanName + " Human starts to JUMP^^^\uD83E\uDD38");
 
     }
 
