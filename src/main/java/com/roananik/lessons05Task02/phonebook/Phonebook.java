@@ -10,17 +10,27 @@ public class Phonebook {
         this.phoneBook = new ArrayList<>();
     }
 
+
     public void addContact(Contact contact) {
         phoneBook.add(contact);
+
     }
 
     public Contact find(String name) {
+        Contact result;
         for (Contact contact : phoneBook) {
             if (name.equalsIgnoreCase(contact.getName())) {
-                return contact;
+                result = new ContactRecord(contact.getName());
+                if (contact.getPhoneNumber() != null) {
+                    result.addPhoneNumber(contact.getPhoneNumber().get(0));
+                    return result;
+                }
+            } else {
+                return null;
             }
         }
         return null;
+
 
     }
 

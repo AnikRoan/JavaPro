@@ -1,15 +1,23 @@
 package com.roananik.lessons05Task02.phonebook;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ContactRecord implements Contact {
-    private String name;
+    private final String name;
+    private List<String> phoneNumber;
 
 
-    private String phoneNumber;
-
-    public ContactRecord(String name, String phoneNumber) {
+    public ContactRecord(String name) {
+        phoneNumber = new ArrayList<>();
         this.name = name;
-        this.phoneNumber = phoneNumber;
+
     }
+    @Override
+    public void addPhoneNumber(String string) {
+        phoneNumber.add(string);
+    }
+
 
     @Override
     public String getName() {
@@ -17,12 +25,13 @@ public class ContactRecord implements Contact {
     }
 
     @Override
-    public String getPhoneNumber() {
+    public List<String> getPhoneNumber() {
         return phoneNumber;
     }
+
     @Override
     public String toString() {
-        return "name: '" + name + '\'' +" "+
-                "phoneNumber: " + phoneNumber+"\n";
+        return "name: '" + name + '\'' + " " +
+                "phoneNumber: " + phoneNumber + "\n";
     }
 }
