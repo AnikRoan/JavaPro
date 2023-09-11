@@ -4,26 +4,28 @@ import java.util.*;
 import java.util.stream.Stream;
 
 public class DifferentMethods {
-    public static int countOccurance(List<String> list, String string) {
+    public int countOccurance(List<String> list, String string) {
         int count = 0;
+
         if (list.isEmpty() || string.isEmpty()) {
             return count;
         }
-        for (String lists : list) {
-            if (lists.equals(string)) {
-                count++;
+        String[] words = string.split(" ");
+        for (String listWord : list) {
+            for (String stringWord : words) {
+
+                if (listWord.equals(stringWord)) {
+                    count++;
+                }
             }
+
         }
         return count;
-        //Створити метод countOccurance, що приймає на вхід рядковий
-        // список як параметр і довільний рядок. Список заповнений довільними
-        // словами 10-20 штук, які можуть повторюватись у необмеженій кількості.
-        // Порахувати скільки разів зустрічається переданий рядок як другий аргумент.
-
 
     }
 
-    public  List<Integer> toList(int[] array) {
+
+    public List<Integer> toList(int[] array) {
         List<Integer> list = new ArrayList<>();
         for (Integer lists : array) {
             list.add(lists);
@@ -31,49 +33,56 @@ public class DifferentMethods {
         return list;
 
     }
-    public  List<String> toList(String[] array) {
+
+    public List<String> toList(String[] array) {
         List<String> list = new ArrayList<>();
         for (String lists : array) {
             list.add(lists);
         }
         return list;
     }
-    public  List<Double> toList(double[] array) {
+
+    public List<Double> toList(double[] array) {
         List<Double> list = new ArrayList<>();
         for (Double lists : array) {
             list.add(lists);
         }
         return list;
     }
-    public  List<Character> toList(char[] array) {
+
+    public List<Character> toList(char[] array) {
         List<Character> list = new ArrayList<>();
         for (Character lists : array) {
             list.add(lists);
         }
         return list;
     }
-    public  List<Float> toList(float[] array) {
+
+    public List<Float> toList(float[] array) {
         List<Float> list = new ArrayList<>();
         for (Float lists : array) {
             list.add(lists);
         }
         return list;
     }
-    public  List<Byte> toList(byte[] array) {
+
+    public List<Byte> toList(byte[] array) {
         List<Byte> list = new ArrayList<>();
         for (Byte lists : array) {
             list.add(lists);
         }
         return list;
     }
-    public  List<Boolean> toList(boolean[] array) {
+
+    public List<Boolean> toList(boolean[] array) {
         List<Boolean> list = new ArrayList<>();
         for (Boolean lists : array) {
             list.add(lists);
         }
         return list;
     }
-    public  <T>List<T> toList(T[] array) {
+
+    public <T> List<T> toList(T[] array) {
         List<T> list = new ArrayList<>();
         for (T lists : array) {
             list.add(lists);
@@ -81,50 +90,57 @@ public class DifferentMethods {
         return list;
     }
 
-    public static List<Integer> findUnique(List<Integer> list) {
-        List<Integer> newList = list.stream().distinct().toList();
-        return newList;
-        //Створити метод findUnique, що приймає на вхід числовий
-        // список, що складається з довільних значень, які можуть
-        // повторюватися в необмеженій кількості. Необхідно повернути
-        // новий числовий список, що містить тільки унікальні числа.
 
-    }
-
-    public static void calcOccurance(List<String> list) {
-        List<String> secondList = list;
-        Set<String> set = new LinkedHashSet<>();
-        int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < secondList.size(); j++) {
-                if (list.get(i).equals(secondList.get(j))) {
-                    count++;
-                }
-            }
-            set.add(list.get(i)+": "+count);
-            count = 0;
+    public List<Integer> findUnique(List<Integer> list) {
+        if (list.isEmpty()) {
+            System.out.println("list is Empty");
         }
-       for(String s:set){
-           System.out.println(s);
-       }
-        //** Створити метод calcOccurance, який приймає на вхід рядковий
-        // список як параметр. Список заповнений довільними словами 10-20 штук,
-        // які можуть повторюватись у необмеженій кількості. Обчислити скільки
-        // разів трапляється кожне слово. Результат вивести у консоль.
+
+        return list.stream().distinct().toList();
 
     }
 
-    public static List<String> findOccurance(List<String> list) {
-        List<String> secondList = list;
-        Set<String> result = new LinkedHashSet<>();
+
+    public void calcOccurance(List<String> list) {
+        if (list.isEmpty()) {
+            System.out.println("list is Empty");
+        }
+        Set<String> setWords = new LinkedHashSet<>();
+
         int count = 0;
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < secondList.size(); j++) {
-                if (list.get(i).equals(secondList.get(j))) {
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j))) {
                     count++;
                 }
             }
-            result.add("name " +list.get(i) + ", occurence: " + count);
+            setWords.add(list.get(i) + ": " + count);
+            count = 0;
+
+        }
+        for (String stringResult : setWords) {
+            System.out.println(stringResult);
+        }
+
+    }
+
+
+    public List<String> findOccurance(List<String> list) {
+        if (list.isEmpty()) {
+            System.out.println("list is Empty");
+        }
+        Set<String> result = new LinkedHashSet<>();
+
+
+        int count = 0;
+        for (int i = 0; i < list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if (list.get(i).equals(list.get(j))) {
+                    count++;
+                }
+            }
+
+           result.add("{name: \"" + list.get(i) + "\", occurrence: " + count + "}");
 
             count = 0;
         }
