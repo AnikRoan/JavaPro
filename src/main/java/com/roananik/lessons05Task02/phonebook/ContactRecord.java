@@ -13,6 +13,7 @@ public class ContactRecord implements Contact {
         this.name = name;
 
     }
+
     @Override
     public void addPhoneNumber(String string) {
         phoneNumber.add(string);
