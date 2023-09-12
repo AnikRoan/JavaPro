@@ -1,7 +1,7 @@
 package com.roananik.lessons05;
 
 import java.util.*;
-import java.util.stream.Stream;
+
 
 public class DifferentMethods {
     public int countOccurance(List<String> list, String string) {
@@ -140,16 +140,11 @@ public class DifferentMethods {
                 }
             }
 
-           result.add("{name: \"" + list.get(i) + "\", occurrence: " + count + "}");
-
+            result.add("{name: \"" + list.get(i) + "\", occurrence: " + count + "}");
             count = 0;
         }
         return new ArrayList<>(result);
-        //*** Створити метод findOccurance, що приймає на вхід рядковий
-        // список як параметр. Список заповнений довільними словами 10-20 штук,
-        // які можуть повторюватись у необмеженій кількості. Обчислити скільки разів
-        // трапляється кожне слово. Результат повернути у вигляді списку структур,
-        // що описують повторення кожного окремого взятого слова.
+
 
     }
 
