@@ -8,7 +8,7 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
         DifferentMethods dif = new DifferentMethods();
-        dif.calcOccurance(new ArrayList<>(Arrays.asList("pop", "pop", "cot", "wolli", "wolli", "wolli")));
+        dif.calcOccurance(new ArrayList<>(Arrays.asList("bird", "bird", "fox", "cat")));
         List<String> l = dif.findOccurance(new ArrayList<>(Arrays.asList("pop", "pop", "cot", "wolli", "wolli", "wolli", "wolli")));
         System.out.println(l);
         int[] i = {1, 2, 3, 4, 5, 6, 7, 8};

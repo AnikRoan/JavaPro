@@ -5,22 +5,7 @@ import java.util.*;
 
 public class DifferentMethods {
     public int countOccurance(List<String> list, String string) {
-        int count = 0;
-
-        if (list.isEmpty() || string.isEmpty()) {
-            return count;
-        }
-        String[] words = string.split(" ");
-        for (String listWord : list) {
-            for (String stringWord : words) {
-
-                if (listWord.equals(stringWord)) {
-                    count++;
-                }
-            }
-
-        }
-        return count;
+        return Collections.frequency(list,string);
 
     }
 
@@ -36,9 +21,7 @@ public class DifferentMethods {
 
     public List<String> toList(String[] array) {
         List<String> list = new ArrayList<>();
-        for (String lists : array) {
-            list.add(lists);
-        }
+        Collections.addAll(list, array);
         return list;
     }
 
@@ -84,9 +67,7 @@ public class DifferentMethods {
 
     public <T> List<T> toList(T[] array) {
         List<T> list = new ArrayList<>();
-        for (T lists : array) {
-            list.add(lists);
-        }
+        Collections.addAll(list, array);
         return list;
     }
 
@@ -102,15 +83,17 @@ public class DifferentMethods {
 
 
     public void calcOccurance(List<String> list) {
+
+
         if (list.isEmpty()) {
             System.out.println("list is Empty");
         }
-        Set<String> setWords = new LinkedHashSet<>();
+        Set<String> setWords = new HashSet<>();
 
         int count = 0;
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size(); j++) {
-                if (list.get(i).equals(list.get(j))) {
+            for (String s : list) {
+                if (list.get(i).equals(s)) {
                     count++;
                 }
             }
@@ -129,13 +112,13 @@ public class DifferentMethods {
         if (list.isEmpty()) {
             System.out.println("list is Empty");
         }
-        Set<String> result = new LinkedHashSet<>();
+        Set<String> result = new HashSet<>();
 
 
         int count = 0;
         for (int i = 0; i < list.size(); i++) {
-            for (int j = 0; j < list.size(); j++) {
-                if (list.get(i).equals(list.get(j))) {
+            for (String s : list) {
+                if (list.get(i).equals(s)) {
                     count++;
                 }
             }
