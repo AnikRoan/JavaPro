@@ -4,8 +4,8 @@ import java.util.*;
 
 
 public class DifferentMethods {
-    public int countOccurance(List<String> list, String string) {
-        return Collections.frequency(list,string);
+    public int countOccurance(List<String> words, String foundWord) {
+        return Collections.frequency(words,foundWord);
 
     }
 
@@ -72,32 +72,32 @@ public class DifferentMethods {
     }
 
 
-    public List<Integer> findUnique(List<Integer> list) {
-        if (list.isEmpty()) {
+    public List<Integer> findUnique(List<Integer> numbers) {
+        if (numbers.isEmpty()) {
             System.out.println("list is Empty");
         }
 
-        return list.stream().distinct().toList();
+        return numbers.stream().distinct().toList();
 
     }
 
 
-    public void calcOccurance(List<String> list) {
+    public void calcOccurance(List<String> words) {
 
 
-        if (list.isEmpty()) {
+        if (words.isEmpty()) {
             System.out.println("list is Empty");
         }
         Set<String> setWords = new HashSet<>();
 
         int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            for (String s : list) {
-                if (list.get(i).equals(s)) {
+        for (int i = 0; i < words.size(); i++) {
+            for (String s : words) {
+                if (words.get(i).equals(s)) {
                     count++;
                 }
             }
-            setWords.add(list.get(i) + ": " + count);
+            setWords.add(words.get(i) + ": " + count);
             count = 0;
 
         }
@@ -108,22 +108,22 @@ public class DifferentMethods {
     }
 
 
-    public List<String> findOccurance(List<String> list) {
-        if (list.isEmpty()) {
+    public List<String> findOccurance(List<String> words) {
+        if (words.isEmpty()) {
             System.out.println("list is Empty");
         }
         Set<String> result = new HashSet<>();
 
 
         int count = 0;
-        for (int i = 0; i < list.size(); i++) {
-            for (String s : list) {
-                if (list.get(i).equals(s)) {
+        for (int i = 0; i < words.size(); i++) {
+            for (String s : words) {
+                if (words.get(i).equals(s)) {
                     count++;
                 }
             }
 
-            result.add("{name: \"" + list.get(i) + "\", occurrence: " + count + "}");
+            result.add("{name: \"" + words.get(i) + "\", occurrence: " + count + "}");
             count = 0;
         }
         return new ArrayList<>(result);
