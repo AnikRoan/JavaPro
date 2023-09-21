@@ -10,16 +10,25 @@ public class Main {
         orderList.addOrder("Olga");
         orderList.addOrder("Sveta");
         orderList.addOrder("Galina");
+
         orderList.draw();
         orderList.deliver(2);
+
         orderList.draw();
         orderList.addOrder("Chuka");
         orderList.draw();
+
         orderList.deliver();
         orderList.draw();
+
         orderList.deliver(4);
         orderList.deliver(3);
         orderList.draw();
+
+        CoffeeOrderBoard secondOrderList = CoffeeOrderBoard.getCoffeeBoard();
+        secondOrderList.addOrder("Fakir");
+        secondOrderList.draw();
+
 
 
     }

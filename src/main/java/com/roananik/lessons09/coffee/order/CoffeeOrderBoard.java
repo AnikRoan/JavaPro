@@ -25,10 +25,10 @@ public class CoffeeOrderBoard implements OrderBoard {
         if (customerName.isEmpty()) {
             return;
         }
-        Orderable o = new Order(customerName);
-        o.setNumberOrder(nextOrder++);
-        lineOfCustomers.add(o);
-        System.out.println(" new order arrived " + o);
+        Orderable customerData = new Order(customerName);
+        customerData.setNumberOrder(nextOrder++);
+        lineOfCustomers.add(customerData);
+        System.out.println("new order arrived " + customerData);
 
     }
 
@@ -50,13 +50,14 @@ public class CoffeeOrderBoard implements OrderBoard {
             return;
         }
 
-        for (Orderable o : lineOfCustomers) {
-            if (o.getNumberOrder() == index) {
-                System.out.println("order view for " + o);
+        for (Orderable customer : lineOfCustomers) {
+            if (customer.getNumberOrder() == index) {
+                System.out.println("order view for " + customer);
+
             }
         }
 
-        lineOfCustomers.removeIf(i -> i.getNumberOrder() == index);
+        lineOfCustomers.removeIf(customerNumber -> customerNumber.getNumberOrder() == index);
 
     }
 
@@ -68,11 +69,11 @@ public class CoffeeOrderBoard implements OrderBoard {
 
         System.out.println("**************");
         System.out.println("NUM   | NAME");
-        PriorityQueue<Orderable> tempQueue = new PriorityQueue<>(lineOfCustomers);
+        PriorityQueue<Orderable> temp = new PriorityQueue<>(lineOfCustomers);
 
-        while (!tempQueue.isEmpty()) {
-            Orderable o = tempQueue.poll();
-            System.out.println(o.getNumberOrder() + "\t\t" + o.getName());
+        while (!temp.isEmpty()) {
+            Orderable customer = temp.poll();
+            System.out.println(customer.getNumberOrder() + "\t\t" + customer.getName());
         }
 
         System.out.println("**************");
