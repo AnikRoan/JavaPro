@@ -1,29 +1,40 @@
 package com.roananik.lessons13;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 
-public class BookAnalize implements Runnable {
-    private final String infoMessage = " Unique words:\n";
+public class BookAnalysis implements Runnable {
+    private final String infoMessage = "Unique words:\n";
 
     private final StringBuilder bookStatistics = new StringBuilder();
-    private final String nameBook;
+    private String nameBook;
     private String[] allWordsFromBook;
-    private final int numberOfWordsNeeded;
+    private int numberOfWordsNeeded;
     Map<String, Integer> wordsAndNumberOfRepetitions = new HashMap<>();
 
 
-    public BookAnalize(String nameBook, int countLimit) {
-        this.nameBook = nameBook;
-        this.numberOfWordsNeeded = countLimit;
+    public BookAnalysis() {
+
+    }
+
+    private void getScanner() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("enter the book title");
+        nameBook = scanner.nextLine();
+
+        System.out.println("enter the number. hom many unique words do you want to get");
+        numberOfWordsNeeded = scanner.nextInt();
+
+        scanner.close();
     }
 
     @Override
     public void run() {
+        getScanner();
+
         String pathFile = "src/" + this.nameBook + ".txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(pathFile))) {
@@ -46,9 +57,14 @@ public class BookAnalize implements Runnable {
         }
 
         getSpecifiedNumberOfWords();
+
         amountOfAllUniqueWords();
+
         bookStatistics.append("name file: " + this.nameBook + "_statistic.txt");
+
         createStatisticFile();
+
+        System.out.println(bookStatistics);
     }
 
 
@@ -70,8 +86,6 @@ public class BookAnalize implements Runnable {
                 .limit(this.numberOfWordsNeeded)
                 .toList();
 
-        System.out.println(numberOfWordsNeeded + infoMessage + selectedWords);
-
         bookStatistics.append(numberOfWordsNeeded).append(infoMessage);
 
         for (var word : selectedWords) {
@@ -83,18 +97,15 @@ public class BookAnalize implements Runnable {
     }
 
     private void amountOfAllUniqueWords() {
-        int count = wordsAndNumberOfRepetitions.size();
-
-        System.out.println(infoMessage + "total: " + count);
-        bookStatistics.append(infoMessage + "total: ").append(count).append("\n");
+        bookStatistics.append(infoMessage + "total: ").append(wordsAndNumberOfRepetitions.size()).append("\n");
     }
 
 
     private void createStatisticFile() {
         String statisticFile = this.nameBook + "_statistic.txt";
+
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(statisticFile))) {
             writer.write(bookStatistics.toString());
-
 
         } catch (IOException e) {
             System.out.println("Something went wrong");
