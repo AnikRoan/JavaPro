@@ -5,9 +5,6 @@ import java.util.*;
 public class LeetCodeTasks {
 
     public int numJewelsInStones(String jewels, String stones) {
-        if (jewels == null || stones == null) {
-            return -1;
-        }
 
         Map<Character, Integer> statistics = new HashMap<>();
         for (Character stone : stones.toCharArray()) {
@@ -38,34 +35,34 @@ public class LeetCodeTasks {
 
 
     public int maxNumberOfBalloons(String text) {
-        int b = 0;
-        int a = 0;
-        int l = 0;
-        int o = 0;
-        int n = 0;
+        int bCount = 0;
+        int aCount = 0;
+        int lCount = 0;
+        int oCount = 0;
+        int nCount = 0;
 
-        int count = 0;
+        int quantityballoons = 0;
 
-        for (char h : text.toCharArray()) {
-            switch (h) {
-                case 'b' -> b++;
-                case 'a' -> a++;
-                case 'l' -> l++;
-                case 'o' -> o++;
-                case 'n' -> n++;
+        for (char letter : text.toCharArray()) {
+            switch (letter) {
+                case 'b' -> bCount++;
+                case 'a' -> aCount++;
+                case 'l' -> lCount++;
+                case 'o' -> oCount++;
+                case 'n' -> nCount++;
 
             }
-            if (b >= 1 && a >= 1 && l >= 2 && o >= 2 && n >= 1) {
-                count++;
-                b -= 1;
-                a -= 1;
-                l -= 2;
-                o -= 2;
-                n -= 1;
+            if (bCount >= 1 && aCount >= 1 && lCount >= 2 && oCount >= 2 && nCount >= 1) {
+                quantityballoons++;
+                bCount -= 1;
+                aCount -= 1;
+                lCount -= 2;
+                oCount -= 2;
+                nCount -= 1;
             }
         }
 
 
-        return count;
+        return quantityballoons;
     }
 }

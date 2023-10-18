@@ -20,8 +20,8 @@ public class LeetCodeTasksTest {
 
     @Test
     public void numJewelsInStonesNegativeTest() {
-        String stones = "aAAbBbbBBb";
-        String jewels = "";
+        String stones = "ZZ";
+        String jewels = "z";
         int result = leetCodeTasks.numJewelsInStones(jewels, stones);
         int expected = 0;
 
@@ -29,16 +29,7 @@ public class LeetCodeTasksTest {
 
     }
 
-    @Test
-    public void numJewelsInStonesNullTest() {
-        String stones = null;
-        String jewels = "c";
-        int result = leetCodeTasks.numJewelsInStones(jewels, stones);
-        int expected = -1;
 
-        Assert.assertEquals(expected, result);
-
-    }
 
 
     @Test
