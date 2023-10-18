@@ -54,6 +54,7 @@ public class LeetCodeTasks {
             }
             if (bCount >= 1 && aCount >= 1 && lCount >= 2 && oCount >= 2 && nCount >= 1) {
                 quantityballoons++;
+
                 bCount -= 1;
                 aCount -= 1;
                 lCount -= 2;
