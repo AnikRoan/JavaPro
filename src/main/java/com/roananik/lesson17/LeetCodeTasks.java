@@ -41,7 +41,7 @@ public class LeetCodeTasks {
         int oCount = 0;
         int nCount = 0;
 
-        int quantityballoons = 0;
+        int quantityBalloons = 0;
 
         for (char letter : text.toCharArray()) {
             switch (letter) {
@@ -53,7 +53,7 @@ public class LeetCodeTasks {
 
             }
             if (bCount >= 1 && aCount >= 1 && lCount >= 2 && oCount >= 2 && nCount >= 1) {
-                quantityballoons++;
+                quantityBalloons++;
 
                 bCount -= 1;
                 aCount -= 1;
@@ -64,6 +64,6 @@ public class LeetCodeTasks {
         }
 
 
-        return quantityballoons;
+        return quantityBalloons;
     }
 }
